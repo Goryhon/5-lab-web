@@ -1,0 +1,30 @@
+mixin createMenu(active)
+	each name in ['CSS','Синтаксис CSS','Вставка CSS','CSS текст','CSS шрифт','Блоки']
+		if active==name
+			.main-block
+				+cr(name)
+		else
+			.main
+				+cr(name)
+
+mixin cr(name)
+	if name=='CSS'
+		a(href='index.html')=name
+	else if name=='CSS шрифт'
+		a(href='index-2.html')=name
+	else if name=='Блоки'
+		a(href='index-3.html')=name
+	else
+		a(href='#')=name
+
+html
+	head
+		include headCode
+
+	body
+		.menu 
+			.nav 
+				block menu			
+		
+		block content
+
